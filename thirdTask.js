@@ -13,12 +13,9 @@ const images = [
     alt: "Group of Horses Running",
   },
 ];
-const rar = images.map((image) => {
-  const item = document.createElement("li");
-  const imagel = document.createElement("img");
-  imagel.setAttribute("url", image.url);
-  imagel.setAttribute("alt", image.alt);
-  item.append(imagel);
-  return item;
-});
-list.append(...rar);
+const rar = images
+  .map(
+    ({ url, alt }) => `<li><img class='item' src='${url}' alt='${alt}>'</li>`
+  )
+  .join("");
+list.insertAdjacentHTML("beforeend", rar);
